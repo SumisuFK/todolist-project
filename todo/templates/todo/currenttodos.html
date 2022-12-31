@@ -1,0 +1,20 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<h3 class="ex">Here you can see your deals.I'm sure that you will definitely succeed in performing.</h3>
+
+<ul>
+    {% for todo in todos %}
+    <li>{% if todo.important %}<b>{% endif %}
+
+        <a href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
+
+        {% if todo.important %}</b>{% endif %}
+
+        {% if todo.description %} - {{ todo.description }}{% endif %}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}q
