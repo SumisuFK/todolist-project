@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
@@ -7,6 +7,7 @@ from .forms import TodoForm
 from.models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from .forms import CreationForm
 
 
 @login_required
@@ -82,7 +83,7 @@ def loginuser(request):
 
 def signupuser(request):
     if request.method == 'GET':
-        return render(request, 'todo/signupuser.html', {'form': UserCreationForm()})
+        return render(request, 'todo/signupuser.html', {'form': CreationForm()})
     else:
         if request.POST['password1'] == request.POST['password2']:
             try:
@@ -91,6 +92,6 @@ def signupuser(request):
                 login(request, user)
                 return redirect('currenttodos')
             except IntegrityError:
-                return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'That username has already been taken. Please choose a new username'})
+                return render(request, 'todo/signupuser.html', {'form': CreationForm(), 'error': 'That username has already been taken. Please choose a new username'})
         else:
-            return render(request, 'todo/signupuser.html', {'form': UserCreationForm(), 'error': 'Password did not match'})
+            return render(request, 'todo/signupuser.html', {'form': CreationForm(), 'error': 'Password did not match'})
