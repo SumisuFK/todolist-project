@@ -2,19 +2,17 @@
 
 {% block content %}
 
-<h3 class="ex">Here you can see your deals.I'm sure that you will definitely succeed in performing.</h3>
-
-<ul>
+<h3 class="currentcenter">Here you can see your deals.I'm sure that you will definitely succeed in performing.</h3>
+<ul class="currenttodos">
     {% for todo in todos %}
-    <li>{% if todo.important %}<b>{% endif %}
-
-        <a href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
-
-        {% if todo.important %}</b>{% endif %}
-
+    <li>{% if todo.important %}
+        <b><a style="color: rgb(233, 29, 29);" href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
+    {% else %}
+        <a style="color: rgb(68, 0, 253);" href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
+    {% endif %}
         {% if todo.description %} - {{ todo.description }}{% endif %}</a>
     </li>
     {% endfor %}
 </ul>
 
-{% endblock %}q
+{% endblock %}

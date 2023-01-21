@@ -1,7 +1,10 @@
 {% extends 'todo/base.html' %}
 {% block content %}
 
+{% if user.is_authenticated %}
+<h1 class='center' style="color: rgb(238, 24, 24);">You've already created account</h1>
 
+{% else %}
 <h1 class='scale' style='text-align: center; margin-top: 150px; margin-right: 10px; margin-bottom: 70px; margin-left: 10px; font-size: 80px;'>Sign Up</h1>
 
 <h2>{{ error }}</h2>
@@ -12,4 +15,5 @@
     <button type="submit" class='button1'>Sign Up</button>
 </form>
 
+{% endif %}
 {% endblock %}

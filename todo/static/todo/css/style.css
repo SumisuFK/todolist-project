@@ -6,6 +6,21 @@
   margin-left: 80px;
 }
 
+.currentcenter {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+.currenttodos {
+    margin-left: 400px;
+    margin-top: 25px;
+    margin-bottom: auto;
+    margin-right: auto;
+    font-size: 25px;
+    transition-duration: 0.2s;
+}
+
 .ex {
   font-size: large;
   text-decoration: none;
@@ -33,6 +48,14 @@
   border-radius: 12px;
   background-color: #ff9933;
   color: white;
+}
+
+.button1:active {
+    transform: translate(0em, 0.2em);
+}
+
+.button1:active::before {
+    transform: translate3d(0,0, 1em);
 }
 
 .logoutbutton {
@@ -64,3 +87,27 @@
 .scale:hover {
     transform: scale(1.1);
 }
+
+.button2 {
+    border-radius: 8px;
+    border: none;
+    padding: 4px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 1px 1px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    border: 2.5px solid #0e0d0d;
+}
+
+.button2:hover {
+    border-radius: 12px;
+    background-color: #000000;
+    color: white;
+}
+
