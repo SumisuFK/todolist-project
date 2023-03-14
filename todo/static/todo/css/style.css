@@ -12,13 +12,20 @@
     margin-top: 30px;
 }
 
-.currenttodos {
-    margin-left: 400px;
-    margin-top: 25px;
-    margin-bottom: auto;
-    margin-right: auto;
+div.currenttodos {
+    text-align: center;
     font-size: 25px;
     transition-duration: 0.2s;
+}
+
+div.currenttodos ul {
+    display: inline-block;
+    text-align: left;
+    max-width: 70%;
+}
+
+div.currenttodos ul a {
+    text-decoration: none;
 }
 
 .ex {

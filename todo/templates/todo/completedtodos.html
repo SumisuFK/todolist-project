@@ -3,16 +3,19 @@
 
 <h3 class="currentcenter">Here's your completed deals.Keep it that way!</h3>
 
-<ul>
-    {% for todo in todos %}
-    <li>{% if todo.important %}<b>{% endif %}
+<div class='currenttodos'>
+    <ul style=" font-size: 25px;" >
+        {% for todo in todos %}
+        <li>
+            {% if todo.important %}
+                <b><a style="color: rgb(233, 29, 29);" href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
+            {% else %}
+                <a style="color: rgb(68, 0, 253);" href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
+            {% endif %}
+            {% if todo.description %} - {{ todo.description }}{% endif %}
+                |{{ todo.date_completed|date:'M j Y H:i' }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 
-        <a href="{% url 'viewtodo' todo.id %}">{{ todo.title }}
-        {% if todo.important %}</b>{% endif %}
-        {% if todo.description %} - {{ todo.description }}{% endif %}
-        {{ todo.date_completed|date:'M j Y H:i' }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-{% endblock %}q
+{% endblock %}

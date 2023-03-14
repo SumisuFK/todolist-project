@@ -2,14 +2,16 @@
 {% block content %}
 
 
-<h1>Create</h1>
 
-<h2>{{ error }}</h2>
+{{ error }}
 
-<form method="post">
-    {% csrf_token %}
-{{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
+<h1 class='scale' style="text-align: center; margin-top: 25px;font-size: 60px;">Create</h1>
+<span style="text-align: center;">
+    <form method="POST" style="margin-top: 20px;font-size: 20px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="margin-bottom: 5px; padding: 4px 30px;" class="button2">Create</button>
+    </form>
+
 
 {% endblock %}
